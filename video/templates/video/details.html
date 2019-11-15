@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body %}
+
+<body>
+
+    <div class="page-wrapper" id="page-wrapper">
+        <aside id="page-aside" class=" page-aside aside-folded aside-fixed">
+            <div class="sidenav darkNav">
+                <a href="index.html"
+                    class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+                    <i
+                        class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                    <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span>
+                        UI</span>
+                </a>
+                {% include 'snippets/leftbar.html' %}
+                <!-- aside hidden scroll end-->
+                <div class="aside-footer p-3 pl-25">
+                    <div class="">
+                        App Version - 1.0
+                    </div>
+                </div><!-- aside footer end-->
+            </div><!-- sidenav end-->
+        </aside><!-- page-aside end-->
+        <main class="content">
+            {% include 'snippets/navheader.html' %}
+            <div class="page-content d-flex flex pl-0 pr-0">
+
+                <div class="flex d-flex b-l">
+                    <div class="d-flex flex flex-column">
+                        <div class="navbar bg-white flex-row b-b">
+                            <div class="d-flex pl-3">
+                                <div class="fs-1x font500">
+                                    Projects
+                                </div>
+                            </div>
+                            <div class="d-flex flex justify-content-end pr-3">
+                                <div class="btn-group">
+                                    <button type="button" class="btn active btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-th"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <a href="#" class="btn btn-gradient-success btn-icon-o">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="p-3 pt-0 pb-0">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-8 col-md-7 d-flex flex-column p-4">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 mb-30">
+                                                <div class="bg-white shadow-sm rounded overflow-hidden">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item"
+                                                            src="{{object.video.url}}"></iframe>
+                                                    </div>
+                                                    <h5 class="text-center text-dark pt-15">{{object.title}}</h5>
+                                                    <div class="clearifx row no-margin pt-3 pb-3">
+                                                        <a class="col-4 text-center">
+                                                            <i class="icon-Play-Music text-primary fs-2x"></i><br>
+                                                            <span class="pt-1 fs12">{{object.category}}</span>
+                                                        </a>
+                                                        <a class="col-4 b-r b-l text-center">
+                                                            <i class="icon-Email text-primary fs-2x"></i><br>
+                                                            <span class="pt-1 fs12">Contacts</span>
+                                                        </a>
+                                                        <a class="col-4 text-center">
+                                                            <i class="icon-Speaker text-primary fs-2x"></i><br>
+                                                            <span class="pt-1 fs12">Follow</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--col-->
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 b-l col-md-5 bg-white d-flex flex-column p-4">
+                                        <div class="border1 bg-white p-3 mb-30 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">
+
+                                            </h5>
+                                            <div class="row pb-2 b-b mb-15">
+                                                <div class="col-12">
+                                                    <div class="bg-white pt-3 pb-3 border1">
+                                                        <img src="/media/images/avatar1.jpg" alt=""
+                                                            class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                        <div class="text-center pt-15">
+                                                            <h5 class="text-primary mb-0">Sarah taylor</h5>
+                                                            <span class="text-muted d-block pb-2 pt-1">Web
+                                                                Designer</span>
+                                                            <div class="clearifx pb-2 pt-2 p-3">
+                                                                <a
+                                                                    class="p-3  pt-0 pb-0 b-r text-center d-inline-block">
+                                                                    <span
+                                                                        class="pt-1 text-dark text-muted fs-1x fab fa-facebook-f"></span><br>
+                                                                    <span class="pt-1 fs12">5.4K</span>
+                                                                </a>
+                                                                <a
+                                                                    class="p-3  pt-0 pb-0 b-r text-center d-inline-block">
+                                                                    <span
+                                                                        class="pt-1 text-dark text-muted fs-1x fab fa-twitter"></span><br>
+                                                                    <span class="pt-1 fs12">34.6k</span>
+                                                                </a>
+                                                                <a class="p-3 pt-0 pb-0 text-center d-inline-block">
+                                                                    <span
+                                                                        class="pt-1 text-dark text-muted fs-1x fa fa-user-circle"></span><br>
+                                                                    <span class="pt-1 fs12">1.3K</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="pt-10">
+                                                                <a href="{% url 'videos:index' %}"
+                                                                    class="btn btn-icon btn-gradient-teal">
+                                                                    <i class="fa fa-envelope mr-2 v-m"></i>Home
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="border1 bg-white p-3 mb-30 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Related Movies -
+                                                {{object.category}}</h5>
+                                            {% for movies in related_movies  %}
+                                            <div class="row pb-2 b-b mb-15">
+
+                                                <div class="col-12">
+                                                    <a href="{% url 'videos:details' movies.slug %}">
+                                                        <div class="list-alt bg-pink rounded">
+                                                            <div class="list-item">
+                                                                <img src="{{movies.thumbnail.url}}" alt=""
+                                                                    class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                                <div class="list-body">
+                                                                    <span class="label-helper">
+                                                                        {{movies.title}}
+                                                                    </span>
+                                                                    <span class="list-content">
+                                                                        {{movies.director}}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+
+                                            {% endfor %}
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Another Movies</h5>
+                                            {% for movies in another_movies  %}
+                                            <div class="row pb-2 b-b mb-15">
+
+                                                <div class="col-12">
+                                                    <a href="{% url 'videos:details' movies.slug %}">
+                                                        <div class="list-alt bg-primary rounded">
+                                                            <div class="list-item">
+                                                                <img src="{{movies.thumbnail.url}}" alt=""
+                                                                    class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                                <div class="list-body">
+                                                                    <span class="label-helper">
+                                                                        {{movies.title}}
+                                                                    </span>
+                                                                    <span class="list-content">
+                                                                        {{movies.director}}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+
+                                            {% endfor %}
+                                        </div>
+
+
+
+
+
+
+                                        <div class="border1 bg-white p-3 py-2 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Project Tasks</h5>
+                                            <ul class="timeline-sm list-unstyled">
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo1">
+                                                    <label for="todo1" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> project #1
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo2">
+                                                    <label for="todo2" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo3">
+                                                    <label for="todo3" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo4">
+                                                    <label for="todo4" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                            </ul>
+                                        </div>
+                                        <a target="_blank"
+                                            href="https://wrapbootstrap.com/theme/assan-multipurpose-24-themes-admin-WB05F069P/?ref=wb_rakesh"
+                                            class="btn btn-xl btn-subtitle btn-icon mt-30  btn-gradient-success btn-block">
+                                            <i class="icon-Add-Basket"></i>
+                                            <div class="btn-subtitle-content">
+                                                Buy a license
+                                                <span class="text-block">Buy full pack just for $20</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- content-->
+
+                    </div>
+                </div>
+            </div>
+            <footer class="content-footer bg-light b-t">
+                <div class="d-flex flex align-items-center pl-15 pr-15">
+                    <div class="d-flex flex p-3 ml-auto">
+                        <div>
+                            <a href="#" class="d-inline-flex pl-0 pr-2 b-r">Contact</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 b-r">Storage</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 ">Privacy</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex p-3 mr-auto justify-content-end">
+                        <div class="text-muted">© Copyright 2014-2018. Assan</div>
+                    </div>
+                </div>
+            </footer>
+        </main><!-- page content end-->
+    </div><!-- app's main wrapper end -->
+    <!-- Common plugins -->
+    <script type="text/javascript" src="{% static 'js/plugins/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/appUi-custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/peity/jquery.peity.min.js' %}"></script>
+    <script>
+        $(function () {
+            /**peity**/
+            $(".donut1").peity("donut", {
+            });
+        });
+    </script>
+</body>
+{% endblock body %}

@@ -1,0 +1,90 @@
+{% load static %}
+<div class="page-wrapper" id="page-wrapper">
+    <aside id="page-aside" class=" page-aside">
+        <div class="sidenav darkNav">
+            <a href="index.html"
+                class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+                <i
+                    class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span>
+                    UI</span>
+            </a>
+            <div class="flex">
+                <div class="aside-content slim-scroll">
+                    <ul class="metisMenu" id="metisMenu">
+
+
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'blogdetails' %}">
+
+                                <span class="nav-text">
+                                    Blog Details
+                                </span>
+                            </a>
+                        </li>
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'songdetails' %}">
+
+                                <span class="nav-text">
+                                    Songs Details
+                                </span>
+                            </a>
+                        </li>
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'videodetails' %}">
+
+                                <span class="nav-text">
+                                    Videos Details
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'videos:create' %}">
+
+                                <span class="nav-text">
+                                    Add Video
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'videodetails' %}">
+
+                                <span class="nav-text">
+                                    Add Song
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'videodetails' %}">
+
+                                <span class="nav-text">
+                                    Add Blog
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="active"><i class="icon-Magic-Wand nav-thumbnail"></i>
+                            <a href="{% url 'videos:manage' %}">
+
+                                <span class="nav-text">
+                                    Manage Video
+                                </span>
+                            </a>
+                        </li>
+                        <!--Menu-item-->
+
+                        </li>
+                        <!--Menu-item-->
+                    </ul>
+                </div><!-- aside content end-->
+            </div><!-- aside hidden scroll end-->
+            <div class="aside-footer p-3 pl-25">
+                <div class="">
+                    App Version - 1.0
+                </div>
+            </div><!-- aside footer end-->
+        </div><!-- sidenav end-->
+    </aside><!-- page-aside end-->

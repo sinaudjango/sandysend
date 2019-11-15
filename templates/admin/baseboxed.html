@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <!-- Bootstrap-->
+    <link href="{% static 'lib/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--Common Plugins CSS -->
+    <link href="{% static 'css/plugins/plugins.css' %}" rel="stylesheet">
+    <!--fonts-->
+    <link href="{% static 'lib/line-icons/line-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/font-awesome/css/fontawesome-all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/data-tables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/data-tables/responsive.bootstrap4.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!--page styles-->
+    <link href="{% static 'lib/summernote/summernote-bs4.css' %}" rel="stylesheet">
+</head>
+
+<body class="layout-boxed">
+
+    <div class="page-wrapper" id="page-wrapper">
+
+        {% block leftbar %}
+        {% include "admin/snippets/leftbar.html" %}
+        {% endblock leftbar %}
+
+        <main class="content">
+            {% include "admin/snippets/header.html" %}
+            {% include "admin/snippets/subheader.html" %}
+            <div class="page-content d-flex flex">
+                <div class="container-fluid">
+                    <div class="portlet-box border0 shadow-sm">
+                        {% block content %}
+
+                        {% endblock content %}
+                    </div>
+                </div>
+            </div>
+            <footer class="content-footer bg-light b-t">
+                <div class="d-flex flex align-items-center pl-15 pr-15">
+                    <div class="d-flex flex p-3 ml-auto">
+                        <div>
+                            <a href="#" class="d-inline-flex pl-0 pr-2 b-r">Contact</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 b-r">Storage</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 ">Privacy</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex p-3 mr-auto justify-content-end">
+                        <div class="text-muted">© Copyright 2014-2018. Assan</div>
+                    </div>
+                </div>
+            </footer><!-- footer end-->
+        </main><!-- page content end-->
+    </div><!-- app's main wrapper end -->
+    <!-- Common plugins -->
+    <!-- Common plugins -->
+    <script type="text/javascript" src="{% static 'js/plugins/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/appUi-custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/peity/jquery.peity.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/widgets-custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/summernote/summernote-bs4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins-custom/summernote-custom.js' %}"></script>
+    <!-- Required datatable js -->
+    <script type="text/javascript" src="{% static 'lib/data-tables/jquery.dataTables.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/data-tables/dataTables.bootstrap4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/data-tables/dataTables.responsive.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/data-tables/responsive.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'js/plugins-custom/datatables-custom.js' %}"></script>
+</body>
+
+</html>

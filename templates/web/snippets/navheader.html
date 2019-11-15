@@ -1,0 +1,37 @@
+    {% load static %}
+    <header class="navbar page-header whiteHeader navbar-expand-lg">
+                    <ul class="nav flex-row mr-auto">
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="nav-link sidenav-btn h-lg-down">
+                                <span class="navbar-toggler-icon"></span>
+                            </a>
+                            <a class="nav-link sidenav-btn h-lg-up" href="#page-aside"  data-toggle="dropdown" data-target="#page-aside">
+                                <span class="navbar-toggler-icon"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                            <a class="navbar-brand" href="{% url 'index' %}">Neima</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                              <a class="nav-item nav-link active" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                              <a class="nav-item nav-link" href="{% url 'blogs:index' %}">Blog</a>
+                              <a class="nav-item nav-link" href="{% url 'songs:index'  %}">Songs</a>
+                              <a class="nav-item nav-link" href="{% url 'videos:index' %}">Movies</a>
+                              <a class="nav-item nav-link" href="{% url 'admin:index' %}" target="blank">Admin</a>
+                              <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                      
+                            </div>
+                          </nav>
+                    <div class="collapse navbar-collapse search-collapse" id="navbarToggler">
+                        <form class="form-inline ml-1">     
+                            <button class="no-padding bg-trans border0" type="button"><i class="icon-Magnifi-Glass2"></i></button>
+                            <input class="form-control border0" type="search" placeholder="Search..." aria-label="Search">
+                        </form>
+                          
+                    </div>
+
+                </header>

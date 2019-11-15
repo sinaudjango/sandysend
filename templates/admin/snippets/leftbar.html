@@ -1,0 +1,124 @@
+<aside id="page-aside" class=" page-aside">
+    <div class="sidenav darkNav">
+        <a href="index.html"
+            class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+            <i
+                class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+            <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span>
+                UI</span>
+        </a>
+        <div class="flex hidden-scroll">
+            <div class="aside-content">
+                <ul class="metisMenu" id="metisMenu">
+                    <li class="nav-title">Main<span class="nav-thumbnail">MN</span></li>
+                    <li> <i class="icon-Gaugage nav-thumbnail"></i>
+                        <a class="has-arrow" href="javascript:void(0)">
+
+                            <span class="nav-text">
+                                Dashboard
+                            </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <span class="nav-thumbnail">01</span>
+                                <a href="{% url 'index' %}" target="blank">Hompage</a>
+                            </li>
+                            <li>
+                                <span class="nav-thumbnail">02</span>
+                                <a href="#">Home Admin</a>
+                            </li>
+                            <li>
+
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Menu-item-->
+                    <li class="nav-title">Menu Blog<span class="nav-thumbnail">Lt</span></li>
+                    <li> <i class="icon-Split-Vertical2 nav-thumbnail"></i>
+                        <a class="has-arrow" href="javascript:void(0)">
+
+                            <span class="nav-text">
+                                Blog
+                            </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><span class="nav-thumbnail">Tc</span>
+                                <a href="{% url 'blogs:manage' %}">Manage</a>
+                            </li>
+                            <li><span class="nav-thumbnail">Tc</span>
+                                <a href="{% url 'blogs:create' %}">Add</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!--Menu-item-->
+                    <li class="nav-title">Menu Movies<span class="nav-thumbnail">Ap</span></li>
+
+                    <li> <i class="icon-Tablet nav-thumbnail"></i>
+                        <a class="has-arrow" href="javascript:void(0)">
+
+                            <span class="nav-text">
+                                Movies
+                            </span><span
+                                class="badge text-danger-light badge-danger ml-1 badge-text anibadge">Hot</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li class="active">
+                                <span class="nav-thumbnail"><i class="fa fa-inbox"></i></span>
+                                <a href="{% url 'videos:manage' %}">Manage</a>
+                            </li>
+                            <li>
+                                <span class="nav-thumbnail "><i class="fa fa-forward"></i></span>
+                                <a href="{% url 'videos:create' %}">Add</a>
+                            </li>
+
+                            <!--Menu-item-->
+                            <li> <span class="far fa-user nav-thumbnail"></span><a href="app-profile.html">
+                                    Profile
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!--Menu-item-->
+
+                    <li class="nav-title">Menu Songs
+                        <span class="nav-thumbnail">UI</span></li>
+                    <li> <i class="icon-Palette nav-thumbnail"></i>
+                        <a class="has-arrow" href="javascript:void(0)">
+
+                            <span class="nav-text">
+                                Songs
+                            </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <span class="nav-thumbnail "><i class="fa fa-text-height"></i></span>
+                                <a href="{% url 'songs:manage' %}">Manage</a>
+                            </li>
+                            <li>
+                                <span class="nav-thumbnail "><i class="fa fa-text-height"></i></span>
+                                <a href="{% url 'songs:create' %}">Add</a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <!--Menu-item-->
+
+
+                    <!--Menu-item-->
+                </ul>
+            </div><!-- aside content end-->
+        </div><!-- aside hidden scroll end-->
+        <div class="aside-footer p-3 pl-25">
+            <div class="">
+                App Version - 1.0
+            </div>
+        </div><!-- aside footer end-->
+    </div><!-- sidenav end-->
+</aside><!-- page-aside end-->

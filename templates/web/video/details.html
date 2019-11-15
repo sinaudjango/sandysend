@@ -1,0 +1,244 @@
+{% extends 'web/blog/baseblog.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="col-lg-12">
+    <div class="blog-details-box">
+        <div class="row">
+
+
+            <div class="col-md-12">
+                <div class="card-box">
+                    <div class="text-center">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="{{object.video.url}}"></iframe>
+                        </div>
+                        <h4 class="mb-1">{{object.title}}</h4>
+                        <p class="text-muted  font-14">Director: {{object.director}}</p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                        {{object.storyline}}
+                    </p>
+
+                    <div class="text-center">
+                        <a href="{% url 'videos:index' %}" class="btn btn-sm btn-secondary">Home</a>
+                    </div>
+
+                    <div class="row mt-5 text-center">
+                        <div class="col-4">
+                            <h5 class="font-weight-normal text-muted">Views</h5>
+                            <h3 class="m-b-30">22,923.4 cr</h3>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="font-weight-normal text-muted">Like</h5>
+                            <h3 class="m-b-30">47k</h3>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="font-weight-normal text-muted">Comment</h5>
+                            <h3 class="m-b-30">47k</h3>
+                        </div>
+                    </div>
+
+                    <div id="company-2" class="text-center"></div>
+
+                </div>
+            </div><!-- end col -->
+
+
+        </div>
+        <!-- end card -->
+
+        <div class="card mb-4">
+            <div class="card-body p-4">
+                <h5 class="font-18 mt-0">Comments</h5>
+                <hr>
+                <ul class="media-list mb-0 p-3">
+
+                    <li class="media">
+                        <a href="#">
+                            <img class="media-object avatar-md rounded-circle" src="/media/images/users/img-1.png"
+                                alt="img">
+                        </a>
+
+                        <div class="media-body ml-3">
+                            <a href="#" class="float-right text-primary"><i class="mdi mdi-reply"></i> Reply</a>
+                            <h5 class="mt-0 font-16">Michelle Duran</h5>
+                            <p class="text-muted">05 May, 2019, 11:45 am</p>
+                            <p class="text-muted">It will be as simple as Occidental; in fact, it will be occidental. To
+                                an English person, it will seem like simplified english, as a skeptical Cambridge friend
+                                of mine told me what occidental.</p>
+                        </div>
+                    </li>
+
+                    <li class="media mt-3">
+                        <a href="#">
+                            <img class="media-object avatar-md rounded-circle" src="/media/images/users/img-2.png"
+                                alt="img">
+                        </a>
+
+                        <div class="media-body ml-3">
+                            <a href="#" class="float-right text-primary"><i class="mdi mdi-reply"></i> Reply</a>
+                            <h5 class="mt-0 font-16">Ronda Otoole</h5>
+                            <p class="text-muted">06 May, 2019, 11:52 am</p>
+                            <p class="text-muted mb-4">Nulla venenatis in pede mi aliquet sit amet euismod i, auctor ut
+                                ligula aliquam dapibus tincidunt metus praesent justo dolor lobortis quis lobortis
+                                dignissim pulvinar ac.</p>
+
+                            <div class="media sub_media mt-2">
+                                <a href="#">
+                                    <img class="media-object avatar-md rounded-circle"
+                                        src="/media/images/users/img-3.png" alt="img">
+                                </a>
+                                <div class="media-body ml-3">
+                                    <a href="#" class="float-right text-primary"><i class="mdi mdi-reply"></i> Reply</a>
+                                    <h5 class="mt-0 font-16">James Whitley</h5>
+                                    <p class="text-muted">06 May, 2019, 12:24 pm</p>
+                                    <p class="text-muted">Everyone realizes why a new common language would be
+                                        desirable: one could refuse to pay expensive translators.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="media mt-3">
+                        <a href="#">
+                            <img class="media-object avatar-md rounded-circle" src="/media/images/users/img-1.png"
+                                alt="">
+                        </a>
+                        <div class="media-body ml-3">
+                            <a href="#" class="float-right text-primary"><i class="mdi mdi-reply"></i> Reply</a>
+                            <h5 class="mt-0 font-16">Kimberly Chretien</h5>
+                            <p class="text-muted">07 May, 2019, 11:45 am</p>
+                            <p class="text-muted">If several languages coalesce, the grammar of the resulting language
+                                is more simple and regular than that of the individual languages the new common language
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end card -->
+
+        <div class="card">
+            <div class="card-body p-4">
+                <h5 class="font-18">Comments</h5>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form class="form-main">
+                            <div class="row mt-4">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="name2">Name</label>
+                                        <input name="name" id="name2" type="text" class="form-control"
+                                            placeholder="Your name...">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="email2">Email address</label>
+                                        <input name="email" id="email2" type="email" class="form-control"
+                                            placeholder="Your email...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="subject2">Subject</label>
+                                        <input name="name" id="subject2" type="text" class="form-control"
+                                            placeholder="Your subject...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="comments2">Message</label>
+                                        <textarea name="comments" id="comments2" rows="4" class="form-control"
+                                            placeholder="Your message..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary" id="send">Submit <i
+                                                class="mdi mdi-send ml-2"></i></button>
+                                    </div>
+                                </div> <!-- /col -->
+                            </div> <!-- /row -->
+                        </form> <!-- /form -->
+                    </div> <!-- end col -->
+                </div><!-- end row -->
+
+            </div>
+        </div>
+    </div>
+    <!-- end blog-detail-box -->
+</div>
+{% endblock content %}
+
+
+{% block category %}
+<div class="widget widget-categories card mb-4">
+    <div class="p-4">
+        <h4 class="widget-title mt-0">Category</h4>
+        <hr>
+
+        {% for category in list_category  %}
+        <ul class="list-unstyled mb-0">
+            <li><a href="{% url 'videos:category' category %}"><i
+                        class="pe-7s-car float-left mr-2 text-primary font-22"></i>
+                    {{category}} <span class="float-right">(40)</span></a></li>
+
+        </ul>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock category %}
+
+{% block populer %}
+<div class="widget widget-popular-post card mb-4">
+    <div class="p-4">
+        <h4 class="widget-title mt-0">Related Movies</h4>
+        <hr>
+        <div>
+
+            {% for related in related_movies  %}
+
+
+
+            <div class="popular-post media">
+                <img src="{{related.thumbnail.url}}" class="img-fluid rounded mr-3" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0 font-14"><a href="{% url 'videos:details' related.slug %}"
+                            class="text-dark">{{related.title}}</a></h5>
+                    <span class="text-muted">{{related.director}}</span>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock populer %}
+
+{% block archive %}
+
+{% endblock archive %}
+
+
+{% block tags %}
+
+{% endblock tags %}

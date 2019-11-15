@@ -1,0 +1,30 @@
+{% extends 'admin/baseboxed.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="col-lg-6">
+
+    <form method="POST" enctype="multipart/form-data" class="post-form">
+        {% csrf_token %}
+        <div class="portlet-box portlet-gutter ui-buttons-col mb-30">
+            <div class="portlet-header flex-row flex d-flex align-items-center b-b">
+                <div class="flex d-flex flex-column">
+                    <h3>Add Song</h3>
+                    <span class="portlet-subtitle">Bootstrap Default Form
+                        elements</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                {{form|crispy}}
+                <button type="submit" class="btn btn-primary">Update</button>
+
+
+            </div>
+        </div>
+        <!--portlet-->
+
+    </form>
+</div>
+{% endblock content %}

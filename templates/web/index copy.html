@@ -1,0 +1,58 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+{{% block service %}
+<section class="section" id="services">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="title text-center my-4">
+                        <h3 class="mb-3">The theme is fully responsive and easy to customize</h3>
+                        <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                            doloremque laudantium totam rem aperiam eaque ipsa quae</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+            <div class="row">
+                    {% for video in list_video  %}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="bg-white shadow-sm rounded overflow-hidden">
+                            <a href="{% url 'videos:details' video.slug %}">
+                                    <img src="{{video.thumbnail.url}}" alt="" class="img-fluid"></a>
+<a href="{% url 'videos:details' video.slug %}">
+    <h5 class="text-center text-dark pt-15">{{video.title}}</h5>
+</a>
+<div class="container col-lg-3">
+    <a href="{% url 'videos:details' video.slug %}" class="btn btn-icon btn-danger">
+        <i class="fa fa-play"></i> Play
+    </a>
+</div>
+<div class="clearifx row no-margin pt-3 pb-3">
+    <a class="col-4 text-center">
+        <i class="icon-Telephone text-primary fs-2x"></i><br>
+        <span class="pt-1 fs12">Call</span>
+    </a>
+    <a class="col-4 b-r b-l text-center">
+        <i class="icon-Email text-primary fs-2x"></i><br>
+        <span class="pt-1 fs12">Contacts</span>
+    </a>
+    <a class="col-4 text-center">
+        <i class="icon-Speaker text-primary fs-2x"></i><br>
+        <span class="pt-1 fs12">Follow</span>
+    </a>
+</div>
+</div>
+</div>
+{% endfor %}
+
+
+</div>
+<!-- end row -->
+</div>
+<!-- end container-fluid -->
+</section>
+{% endblock service %}}
+{% endblock content %}

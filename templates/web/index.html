@@ -1,0 +1,240 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block homestart %}
+<!-- home start -->
+<section class="bg-home bg-primary" id="home">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="home-content text-center mb-4">
+                    <h1 class="home-title mb-4 text-white">Neima is a fully featured premium admin template</h1>
+                    <p class="text-white-50 home-desc mb-4">Minton is a fully featured premium admin template built
+                        on top of awesome Bootstrap 4.3.1, modern web technology HTML5, CSS3 and jQuery.</p>
+                    <div>
+                        <a href="#" class="btn btn-light mr-1">Contact us</a>
+                        <a href="#" class="btn btn-purple">Our Works</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="home-img">
+                    <img src="/media/images/home-img.png" alt="" class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container-fluid -->
+</section>
+<!-- home end -->
+{% endblock homestart %}
+
+{% block services %}
+
+
+    <!-- services start | Movies -->
+    <section class="section" id="movies">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="title text-center my-4">
+                        <h3 class="mb-3">The theme is fully responsive and easy to customize</h3>
+                        <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                            doloremque laudantium totam rem aperiam eaque ipsa quae</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+            <div class="row">
+            {% for video in list_video  %}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="bg-white shadow-sm rounded overflow-hidden">
+                <a href="{% url 'videos:details' video.slug %}">
+                    <img src="{{video.thumbnail.url}}" alt="" class="img-fluid">
+                </a>
+                <a href="{% url 'videos:details' video.slug %}">
+                    <h5 class="text-center text-dark pt-15">{{video.title}}</h5></a>
+                    <div class="container col-lg-3">
+                        <a href="{% url 'videos:details' video.slug %}" class="btn btn-icon btn-danger">
+                            <i class="fa fa-play"></i> Play
+                        </a>
+                    </div>
+
+
+                <div class="clearifx row no-margin pt-3 pb-3">
+                    <a class="col-4 text-center">
+                        <i class="icon-Telephone text-primary fs-2x"></i><br>
+                        <span class="pt-1 fs12">Call</span>
+                    </a>
+                    <a class="col-4 b-r b-l text-center">
+                        <i class="icon-Email text-primary fs-2x"></i><br>
+                        <span class="pt-1 fs12">Contacts</span>
+                    </a>
+                    <a class="col-4 text-center">
+                        <i class="icon-Speaker text-primary fs-2x"></i><br>
+                        <span class="pt-1 fs12">Follow</span>
+                    </a>
+                </div>
+            </div>
+                </div>
+{% endfor %}
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </section>
+    <!-- services end -->
+    {% endblock services %}
+
+
+{% block features %}
+
+   
+
+    <!-- services start | Songs -->
+    <section class="section" id="songs">
+        <div class="container-fluid">
+            
+            <!-- end row -->
+            <div class="row">
+
+            {% for song in list_song  %}
+                <div class="col-lg-3 col-sm-4">
+                    <div class="bg-gradient-primary bg-primary pt-4 pb-4 rounded shadow-sm">
+            <img src="{{song.cover.url}}" alt=""
+                class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+            <div class="text-center pt-15">
+                <h5 class=" mb-0">{{song.title}}</h5>
+                <span class="text-muted  d-block pb-2">{{song.singer}}</span>
+                <div class="clearifx pb-3">
+                    <span class="p-2 text-center d-inline-block ">
+                        <span class="pt-1  fs-1x">{{song.album}}</span><br>
+                        <span class="pt-1  fs12 text-muted">Album</span>
+                    </span>
+                    <span class="p-2 text-center d-inline-block ">
+                        <span class="pt-1  fs-1x">{{song.genre}}</span><br>
+                        <span class="pt-1  fs12 text-muted">Genre</span>
+                    </span>
+
+                </div>
+                <a href="{% url 'songs:details' song.slug %}" class="btn btn-icon btn-danger">
+                    <i class="fa fa-play"></i> Play
+                </a>
+            </div>
+        </div>
+            </div>
+                
+{% endfor %}
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </section>
+    <!-- services end -->
+    {% endblock features %}
+
+
+
+{% block counter %}
+    <!-- counter start | Tabs -->
+    <section class="section" id="blogs">
+        <div class="container-fluid">
+            
+            <!-- end row -->
+            <div class="row">
+
+            {% for blog in list_blog  %}
+            <div class="col-lg-3 col-sm-4">
+                <div class="iCard border1 p-2 rounded bg-white">
+                    <a href="#">
+                        <img src="{{ blog.cover.url}}" alt="" class="img-fluid rounded" style="width: auto">
+                    </a>
+                    <div class="iCard-content p-1 pt-15 pb-15">
+                        <h3 class="h5 text-dark font400 mb-10 text-capitalize"><a
+                                href="{% url 'blogs:details' blog.slug %}">{{blog.title}}</a>
+                        </h3>
+                        <div class="mb-15">
+                            <a class="font600 pb-1 b-b d-inline-block fs12 text-muted" href="#"><i
+                                    class="fa fa-tag mr-2"></i>{{blog.category}}</a>
+                            <a class="font600 pb-1 b-b d-inline-block ml-2 fs12 text-muted" href="#"><i
+                                    class="fa fa-user-circle mr-2"></i>{{blog.author}}</a>
+                        </div>
+                        <div class="thumbnails-group mb-15">
+                            {{blog.content|truncatewords:25|safe}}.
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="btn btn-gradient-light btn-icon btn-icon-right btn-sm">
+                                <i class="fa fa-chevron-right"></i>
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--col-->
+            {% endfor %}
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </section>
+    <!-- counter end -->
+    
+{% endblock counter %}
+    
+    
+
+{% block pricing %}
+
+<!-- services start | Blogs -->
+    <section class="section" id="blogs">
+        <div class="container-fluid">
+            
+            <!-- end row -->
+            <div class="row">
+
+            {% for blog in list_blog  %}
+            <div class="col-lg-3 col-sm-4">
+                <div class="iCard border1 p-2 rounded bg-white">
+                    <a href="#">
+                        <img src="{{ blog.cover.url}}" alt="" class="img-fluid rounded" style="width: auto">
+                    </a>
+                    <div class="iCard-content p-1 pt-15 pb-15">
+                        <h3 class="h5 text-dark font400 mb-10 text-capitalize"><a
+                                href="{% url 'blogs:details' blog.slug %}">{{blog.title}}</a>
+                        </h3>
+                        <div class="mb-15">
+                            <a class="font600 pb-1 b-b d-inline-block fs12 text-muted" href="#"><i
+                                    class="fa fa-tag mr-2"></i>{{blog.category}}</a>
+                            <a class="font600 pb-1 b-b d-inline-block ml-2 fs12 text-muted" href="#"><i
+                                    class="fa fa-user-circle mr-2"></i>{{blog.author}}</a>
+                        </div>
+                        <div class="thumbnails-group mb-15">
+                            {{blog.content|truncatewords:25|safe}}.
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="btn btn-gradient-light btn-icon btn-icon-right btn-sm">
+                                <i class="fa fa-chevron-right"></i>
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--col-->
+            {% endfor %}
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </section>
+    <!-- services end -->
+    
+{% endblock pricing %}
+    

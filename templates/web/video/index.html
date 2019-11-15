@@ -1,0 +1,86 @@
+{% extends 'web/blog/baseblog.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+
+    {% for video in videolist %}
+    <div class="col-lg-6">
+        <div class="card overflow-hidden mb-4">
+            <div class="blog-img">
+                <img src="{{video.thumbnail.url}}" alt="" class="img-fluid mx-auto d-block">
+            </div>
+            <div class="blog-content p-3 mx-3">
+                <h4 class="mt-0"><a href="{% url 'videos:details' video.slug%}" class="text-dark">{{video.title}}</a>
+                </h4>
+                <p class="text-muted mb-0">{{song.storyline|truncatewords:20}}</p>
+            </div>
+            <div class="blog-meta px-4 pb-3">
+                <p class="float-right text-muted pt-1 mb-0">{{song.publish|date}}</p>
+                <div class="float-left mr-2">
+                    <img src="/media/images/users/img-1.png" alt="" class="rounded-circle avatar-sm">
+                </div>
+                <h5 class="font-14 mt-0 pt-2">{{video.director}}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock content %}
+
+{% block category %}
+<div class="widget widget-categories card mb-4">
+    <div class="p-4">
+        <h4 class="widget-title mt-0">Category</h4>
+        <hr>
+
+        {% for category in list_category  %}
+        <ul class="list-unstyled mb-0">
+            <li><a href="{% url 'videos:category' category %}"><i
+                        class="pe-7s-car float-left mr-2 text-primary font-22"></i>
+                    {{category}} <span class="float-right">(40)</span></a></li>
+
+        </ul>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock category %}
+
+{% block populer %}
+
+
+{% endblock populer %}
+
+{% block archive %}
+
+{% endblock archive %}
+
+
+
+{% block tags %}
+<div class="widget widget-tag-cloud card mb-4">
+    <div class="p-4">
+        <h4 class="widget-title mt-0">Director</h5>
+            <hr>
+            <div class="tagcloud">
+
+                {% for director in list_director  %}
+                <a href="#">{{director}}</a>
+                {% endfor %}
+
+
+                <a href="#">Business</a>
+                <a href="#">Corporate</a>
+                <a href="#">E-commerce</a>
+                <a href="#">Agency</a>
+                <a href="#">Responsive</a>
+            </div>
+    </div>
+</div>
+
+{% endblock tags %}

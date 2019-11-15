@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body %}
+
+<body>
+
+    <div class="page-wrapper" id="page-wrapper">
+        <aside id="page-aside" class=" page-aside aside-folded aside-fixed">
+            <div class="sidenav darkNav">
+                <a href="index.html"
+                    class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+                    <i
+                        class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                    <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span>
+                        UI</span>
+                </a>
+                {% include 'snippets/leftbar.html' %}
+                <!-- aside hidden scroll end-->
+                <div class="aside-footer p-3 pl-25">
+                    <div class="">
+                        App Version - 1.0
+                    </div>
+                </div><!-- aside footer end-->
+            </div><!-- sidenav end-->
+        </aside><!-- page-aside end-->
+        <main class="content">
+            {% include 'snippets/navheader.html' %}
+            <div class="page-content d-flex flex pl-0 pr-0">
+
+                <div class="flex d-flex b-l">
+                    <div class="d-flex flex flex-column">
+                        <div class="navbar bg-white flex-row b-b">
+                            <div class="d-flex pl-3">
+                                <div class="fs-1x font500">
+                                    Projects
+                                </div>
+                            </div>
+                            <div class="d-flex flex justify-content-end pr-3">
+                                <div class="btn-group">
+                                    <button type="button" class="btn active btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-th"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <a href="#" class="btn btn-gradient-success btn-icon-o">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="p-3 pt-0 pb-0">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-8 col-md-7 d-flex flex-column p-4">
+                                        <div class="row">
+
+
+                                            <div class="col-lg-4 mb-30">
+                                                <div class="bg-gradient-primary bg-primary pt-4 pb-4 rounded shadow-sm">
+                                                    <img src="{{object.cover.url}}" alt=""
+                                                        class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                    <div class="text-center pt-15">
+                                                        <h5 class=" mb-0">{{object.title}}</h5>
+                                                        <span class="text-muted  d-block pb-2">{{object.singer}}</span>
+                                                        <div class="clearifx pb-3">
+                                                            <span class="p-2 text-center d-inline-block ">
+                                                                <span class="pt-1  fs-1x">{{object.album}}</span><br>
+                                                                <span class="pt-1  fs12 text-muted">Album</span>
+                                                            </span>
+                                                            <span class="p-2 text-center d-inline-block ">
+                                                                <span class="pt-1  fs-1x">{{object.genre}}</span><br>
+                                                                <span class="pt-1  fs12 text-muted">Genre</span>
+                                                            </span>
+                                                            <span class="p-2 text-center d-inline-block ">
+                                                                <span
+                                                                    class="pt-1  fs-1x">{{object.time_upload|date:"d M, Y"}}</span><br>
+                                                                <span class="pt-1  fs12 text-muted">Post</span>
+                                                            </span>
+                                                            <audio controls>
+                                                                <source src="{{ object.audio.url }}" type="audio/mp3">
+                                                            </audio>
+                                                        </div>
+                                                        <a href="{% url 'songs:index' %}"
+                                                            class="btn btn-icon btn-primary">
+                                                            <i class="fa fa-comments"></i> Back
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--col-->
+
+                                            <div class="col-lg-8">
+                                                <div class="portlet-box portlet-gutter ui-buttons-col mb-30">
+                                                    <div
+                                                        class="portlet-header flex-row flex d-flex align-items-center b-b">
+                                                        <div class="flex d-flex flex-column">
+                                                            <h3>{{object.title}}</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body bg-purple">
+                                                        <div class="title-sep sep-purple mb-30">
+                                                            <span>{{object.lyric|safe}}</span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <!--portlet-->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 b-l col-md-5 bg-white d-flex flex-column p-4">
+                                        <div class="border1 bg-white p-3 mb-30 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Another Songs</h5>
+
+
+                                            {% for post in others  %}
+                                            <div class="row pb-2 b-b mb-15">
+
+                                                <div class="col-12">
+                                                    <a href="{% url 'songs:details' post.slug %}">
+                                                        <div class="list-alt bg-primary rounded">
+                                                            <div class="list-item">
+                                                                <img src="{{post.cover.url}}" alt=""
+                                                                    class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                                <div class="list-body">
+                                                                    <span class="label-helper">
+                                                                        {{post.title}}
+                                                                    </span>
+                                                                    <span class="list-content">
+                                                                        {{post.singer}}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Related Songs |
+                                                {{object.genre}}</h5>
+
+
+                                            {% for related in related_songs  %}
+                                            <div class="row pb-2 b-b mb-15">
+
+                                                <div class="col-12">
+                                                    <a href="{% url 'songs:details' related.slug %}">
+                                                        <div class="list-alt bg-primary rounded">
+                                                            <div class="list-item">
+                                                                <img src="{{related.cover.url}}" alt=""
+                                                                    class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                                <div class="list-body">
+                                                                    <span class="label-helper">
+                                                                        {{related.title}}
+                                                                    </span>
+                                                                    <span class="list-content">
+                                                                        {{related.singer}}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+
+
+                                        </div>
+                                        <div class="border1 bg-white p-3 py-2 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Project Tasks</h5>
+                                            <ul class="timeline-sm list-unstyled">
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo1">
+                                                    <label for="todo1" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> project #1
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo2">
+                                                    <label for="todo2" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo3">
+                                                    <label for="todo3" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo4">
+                                                    <label for="todo4" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                            </ul>
+                                        </div>
+                                        <a target="_blank"
+                                            href="https://wrapbootstrap.com/theme/assan-multipurpose-24-themes-admin-WB05F069P/?ref=wb_rakesh"
+                                            class="btn btn-xl btn-subtitle btn-icon mt-30  btn-gradient-success btn-block">
+                                            <i class="icon-Add-Basket"></i>
+                                            <div class="btn-subtitle-content">
+                                                Buy a license
+                                                <span class="text-block">Buy full pack just for $20</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- content-->
+
+                    </div>
+                </div>
+            </div>
+            <footer class="content-footer bg-light b-t">
+                <div class="d-flex flex align-items-center pl-15 pr-15">
+                    <div class="d-flex flex p-3 ml-auto">
+                        <div>
+                            <a href="#" class="d-inline-flex pl-0 pr-2 b-r">Contact</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 b-r">Storage</a>
+                            <a href="#" class="d-inline-flex pl-2 pr-2 ">Privacy</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex p-3 mr-auto justify-content-end">
+                        <div class="text-muted">© Copyright 2014-2018. Assan</div>
+                    </div>
+                </div>
+            </footer>
+        </main><!-- page content end-->
+    </div><!-- app's main wrapper end -->
+    <!-- Common plugins -->
+    <script type="text/javascript" src="{% static 'js/plugins/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/appUi-custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/peity/jquery.peity.min.js' %}"></script>
+    <script>
+        $(function () {
+            /**peity**/
+            $(".donut1").peity("donut", {
+            });
+        });
+    </script>
+</body>
+{% endblock body %}

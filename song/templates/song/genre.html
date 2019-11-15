@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body %}
+
+<body>
+
+    <div class="page-wrapper" id="page-wrapper">
+        <aside id="page-aside" class=" page-aside  aside-folded aside-fixed">
+            <div class="sidenav darkNav">
+                <a href="index.html"
+                    class="app-logo d-flex flex flex-row align-items-center overflow-hidden justify-content-center">
+                    <i
+                        class="icon-Paper-Plane inline-icon rounded avatar32 d-inline-flex align-items-center justify-content-center"></i>
+                    <span class="logo-text d-inline-flex"> <span class='font700 d-inline-block mr-1'>ASSAN</span>
+                        UI</span>
+                </a>
+                {% include 'snippets/leftbar.html' %}
+                <!-- aside hidden scroll end-->
+                <div class="aside-footer p-3 pl-25">
+                    <div class="">
+                        App Version - 1.0
+                    </div>
+                </div><!-- aside footer end-->
+            </div><!-- sidenav end-->
+        </aside><!-- page-aside end-->
+        <main class="content">
+            {% include 'snippets/navheader.html' %}
+            <div class="page-content d-flex flex pl-0 pr-0">
+
+                <div class="flex d-flex b-l">
+                    <div class="d-flex flex flex-column">
+                        <div class="navbar bg-white flex-row b-b">
+                            <div class="d-flex pl-3">
+                                <div class="fs-1x font500">
+                                    Projects
+                                </div>
+                            </div>
+                            <div class="d-flex flex justify-content-end pr-3">
+                                <div class="btn-group">
+                                    <button type="button" class="btn active btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-th"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-gradient-light btn-icon-o">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <a href="#" class="btn btn-gradient-success btn-icon-o">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="p-3 pt-0 pb-0">
+                                <div class="row">
+                                    <div class="col-xl-9 col-lg-8 col-md-7 d-flex flex-column p-4">
+                                        <div class="row">
+
+                                            {% for song in object_list  %}
+                                            <div class="col-lg-4 mb-30">
+                                                <div class="bg-gradient-primary bg-primary pt-4 pb-4 rounded shadow-sm">
+                                                    <img src="{{song.cover.url}}" alt=""
+                                                        class="img-fluid shadow-sm avatar100 ml-auto mr-auto d-block rounded-circle">
+                                                    <div class="text-center pt-15">
+                                                        <h5 class=" mb-0">{{song.title}}</h5>
+                                                        <span class="text-muted  d-block pb-2">{{song.singer}}</span>
+                                                        <div class="clearifx pb-3">
+                                                            <span class="p-2 text-center d-inline-block ">
+                                                                <span class="pt-1  fs-1x">{{song.album}}</span><br>
+                                                                <span class="pt-1  fs12 text-muted">Album</span>
+                                                            </span>
+                                                            <span class="p-2 text-center d-inline-block ">
+                                                                <span class="pt-1  fs-1x">{{song.genre}}</span><br>
+                                                                <span class="pt-1  fs12 text-muted">Genre</span>
+                                                            </span>
+
+                                                        </div>
+                                                        <a href="{% url 'songs:details' song.slug %}"
+                                                            class="btn btn-icon btn-danger">
+                                                            <i class="fa fa-chart-line"></i> Play
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--col-->
+                                            {% endfor %}
+
+                                            {% if is_paginated %}
+                                            <nav aria-label="song_page">
+                                                <ul class="pagination">
+                                                    {% if page_obj.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link"
+                                                            href="{% url 'songs:index' page_obj.previous_page_number %}">Previos</a>
+                                                    </li>
+                                                    {% else %}
+                                                    <li class="page-item disabled">
+                                                        <span class="page-link">Previous</span>
+                                                    </li>
+                                                    {% endif %}
+
+                                                    {% for page in paginator.page_range  %}
+
+                                                    {% if page is page_obj.number %}
+                                                    <li class="page-item active" aria-current="page">
+                                                        <span class="page-link">
+                                                            {{page}}
+                                                            <span class="sr-only">(current)</span>
+                                                        </span>
+                                                    </li>
+                                                    {% else %}
+                                                    <li class="page-item"><a class="page-link"
+                                                            href="{% url 'songs:index' page %}">{{page}}</a></li>
+                                                    {% endif %}
+
+
+
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link"
+                                                            href="{% url 'songs:index' page_obj.next_page_number %}">Next</a>
+                                                    </li>
+                                                    {% else %}
+                                                    <li class="page-item disabled">
+                                                        <span class="page-link">Next</span>
+                                                    </li>
+                                                    {% endif %}
+
+                                                </ul>
+                                            </nav>
+                                            {% endif %}
+
+                                            </ul>
+                                            </nav>
+
+
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 b-l col-md-5 bg-white d-flex flex-column p-4">
+                                        <div class="border1 bg-white p-3 mb-30 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Genre</h5>
+                                            <div class="row pb-2 b-b mb-15">
+
+                                                {% for genre in list_genre  %}
+                                                <a href="javascript:void(0)"
+                                                    class="btn btn-rounded btn-outline-pink mr-1 mb-2">{{genre}}</a>
+                                                {% endfor %}
+                                            </div>
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Singer</h5>
+                                            <div class="row pb-2 b-b mb-15">
+                                                {% for singer in list_singer  %}
+                                                <a href="javascript:void(0)"
+                                                    class="btn btn-rounded btn-outline-dark mr-1 mb-2">{{singer}}</a>
+                                                {% endfor %}
+
+
+                                            </div>
+                                            <!--col-->
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <span class="donut1"
+                                                        data-peity='{ "fill": ["#94df4a", "#e5fcd0"], "innerRadius": 18, "radius": 20 }'>76,24</span>
+                                                </div>
+                                                <div class="col-9">
+                                                    <span class="d-block pb-2">Projects</span>
+                                                    <div class="progress" style="height: 5px">
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped bg-success"
+                                                            style="width: 66%"></div>
+                                                    </div>
+                                                </div>
+                                                <!--col-->
+                                            </div>
+                                        </div>
+                                        <div class="border1 bg-white p-3 py-2 rounded">
+                                            <h5 class="font500 row fs14 mb-20 b-b p-3 pt-0">Project Tasks</h5>
+                                            <ul class="timeline-sm list-unstyled">
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo1">
+                                                    <label for="todo1" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> project #1
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo2">
+                                                    <label for="todo2" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo3">
+                                                    <label for="todo3" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                                <li class="customUi-checkbox check-todo checkbox-rounded">
+                                                    <input type="checkbox" id="todo4">
+                                                    <label for="todo4" class="mb-0">
+                                                        <span class="label-checkbox"></span>
+                                                        <span class="fs12 text-muted d-block pb-1">
+                                                            <i class="far fa-folder-open mr-2 fs10"></i> Web App UI
+                                                        </span>
+                                                        <span class="label-helper">
+                                                            Amet todo text will change ease
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <!--item-->
+                                            </ul>
+                                        </div>>
+                                        <!--col-->
+                                        <a target="_blank"
+                                            href="https://wrapbootstrap.com/theme/assan-multipurpose-24-themes-admin-WB05F069P/?ref=wb_rakesh"
+                                            class="btn btn-xl btn-subtitle btn-icon mt-30  btn-gradient-success btn-block">
+                                            <i class="icon-Add-Basket"></i>
+                                            <div class="btn-subtitle-content">
+                                                Buy a license
+                                                <span class="text-block">Buy full pack just for $20</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div><!-- content-->
+
+                        </div>
+                    </div>
+                </div>
+                <footer class="content-footer bg-light b-t">
+                    <div class="d-flex flex align-items-center pl-15 pr-15">
+                        <div class="d-flex flex p-3 ml-auto">
+                            <div>
+                                <a href="#" class="d-inline-flex pl-0 pr-2 b-r">Contact</a>
+                                <a href="#" class="d-inline-flex pl-2 pr-2 b-r">Storage</a>
+                                <a href="#" class="d-inline-flex pl-2 pr-2 ">Privacy</a>
+                            </div>
+                        </div>
+                        <div class="d-flex flex p-3 mr-auto justify-content-end">
+                            <div class="text-muted">© Copyright 2014-2018. Assan</div>
+                        </div>
+                    </div>
+                </footer>
+        </main><!-- page content end-->
+    </div><!-- app's main wrapper end -->
+    <!-- Common plugins -->
+    <script type="text/javascript" src="{% static 'js/plugins/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/appUi-custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/peity/jquery.peity.min.js' %}"></script>
+    <script>
+        $(function () {
+            /**peity**/
+            $(".donut1").peity("donut", {
+            });
+        });
+    </script>
+</body>
+{% endblock body %}

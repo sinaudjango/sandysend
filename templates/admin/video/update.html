@@ -1,0 +1,32 @@
+{% extends 'admin/baseboxed.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-6">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="portlet-box portlet-gutter ui-buttons-col mb-30">
+            <div class="portlet-header flex-row flex d-flex align-items-center b-b">
+                <div class="flex d-flex flex-column">
+                    <h3>Input types</h3>
+                    <span class="portlet-subtitle">Bootstrap Default Form
+                        elements</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+
+
+                {{form|crispy}}
+                <button type="submit" class="btn btn-primary">Update</button>
+
+
+            </div>
+        </div>
+        <!--portlet-->
+
+    </form>
+</div>
+{% endblock content %}
